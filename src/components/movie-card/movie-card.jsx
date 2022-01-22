@@ -2,7 +2,7 @@ import React from "react";
 
 export class MovieCard extends React.Component {
     render() {
-        const { movieData } = this.props;
+        const { movie } = this.props;
         return <div className="movie-card">{movie.Title}</div>;
     }
 }
