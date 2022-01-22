@@ -22790,22 +22790,35 @@ class MainView extends _reactDefault.default.Component {
             __self: this,
             children: "The list is empty!"
         }));
-        return(/*#__PURE__*/ _jsxRuntime.jsx("div", {
+        return(/*#__PURE__*/ _jsxRuntime.jsxs("div", {
             className: "main-view",
             __source: {
                 fileName: "src/components/main-view/main-view.jsx",
                 lineNumber: 28
             },
             __self: this,
-            children: movies.map((movie)=>/*#__PURE__*/ _jsxRuntime.jsx(_movieCard.MovieCard, {
-                    movie: movie,
+            children: [
+                /*#__PURE__*/ _jsxRuntime.jsx("button", {
+                    onClick: ()=>{
+                        alert('Nice!');
+                    },
                     __source: {
                         fileName: "src/components/main-view/main-view.jsx",
                         lineNumber: 29
                     },
-                    __self: this
-                }, movie._id)
-            )
+                    __self: this,
+                    children: "Click me!"
+                }),
+                movies.map((movie)=>/*#__PURE__*/ _jsxRuntime.jsx(_movieCard.MovieCard, {
+                        movie: movie,
+                        __source: {
+                            fileName: "src/components/main-view/main-view.jsx",
+                            lineNumber: 30
+                        },
+                        __self: this
+                    }, movie._id)
+                )
+            ]
         }));
     }
 }
