@@ -946,13 +946,12 @@ var _reactDefault = parcelHelpers.interopDefault(_react);
 var _reactDom = require("react-dom");
 var _reactDomDefault = parcelHelpers.interopDefault(_reactDom);
 var _mainView = require("./components/main-view/main-view");
-var _mainViewDefault = parcelHelpers.interopDefault(_mainView);
 // Import statement to indicate that you need to bundle `./index.scss`
 var _indexScss = require("./index.scss");
 // Main component (will eventually use all the others)
 class MyFlixApplication extends _reactDefault.default.Component {
     render() {
-        return(/*#__PURE__*/ _jsxRuntime.jsx(_mainViewDefault.default, {
+        return(/*#__PURE__*/ _jsxRuntime.jsx(_mainView.MainView, {
             __source: {
                 fileName: "src/index.jsx",
                 lineNumber: 12
@@ -22771,43 +22770,34 @@ class MainView extends _reactDefault.default.Component {
         };
     }
     render() {
-        return(/*#__PURE__*/ _jsxRuntime.jsxs("div", {
+        const { movies  } = this.state;
+        if (movies.length === 0) return(/*#__PURE__*/ _jsxRuntime.jsx("div", {
             className: "main-view",
             __source: {
                 fileName: "src/components/main-view/main-view.jsx",
                 lineNumber: 19
             },
             __self: this,
-            children: [
-                /*#__PURE__*/ _jsxRuntime.jsx("div", {
-                    __source: {
-                        fileName: "src/components/main-view/main-view.jsx",
-                        lineNumber: 20
-                    },
-                    __self: this,
-                    children: "Inception"
-                }),
-                /*#__PURE__*/ _jsxRuntime.jsx("div", {
-                    __source: {
-                        fileName: "src/components/main-view/main-view.jsx",
-                        lineNumber: 21
-                    },
-                    __self: this,
-                    children: "The Shawshank Redemption"
-                }),
-                /*#__PURE__*/ _jsxRuntime.jsx("div", {
+            children: "The list is empty!"
+        }));
+        return(/*#__PURE__*/ _jsxRuntime.jsx("div", {
+            className: "main-view",
+            __source: {
+                fileName: "src/components/main-view/main-view.jsx",
+                lineNumber: 21
+            },
+            __self: this,
+            children: movies.map((movie)=>/*#__PURE__*/ _jsxRuntime.jsx(_movieCard.MovieCard, {
                     __source: {
                         fileName: "src/components/main-view/main-view.jsx",
                         lineNumber: 22
                     },
-                    __self: this,
-                    children: "Gladiator"
-                })
-            ]
+                    __self: this
+                }, movie._id)
+            )
         }));
     }
 }
-exports.default = MainView;
 
   $parcel$ReactRefreshHelpers$35bf.postlude(module);
 } finally {
