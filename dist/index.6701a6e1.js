@@ -22767,27 +22767,27 @@ class MainView extends _reactDefault.default.Component {
             console.log(error);
         });
     }
-    setSelectedMovie(newSelectedMovie) {
+    setSelectedMovie(movie) {
         this.setState({
             selectedMovie: movie
         });
     }
-    //  Register new user
+    // Register new users
     onRegistration(registration) {
         this.setState({
             registration
         });
     }
-    //   Existing user log in
+    // Existing user logs in
     onLoggedIn(user) {
         this.setState({
             user
         });
     }
     render() {
-        const { movies , selectedMovie , user  } = this.state;
+        const { movies , selectedMovie , user , registration  } = this.state;
         if (!registration) return(/*#__PURE__*/ _jsxRuntime.jsx(_registrationView.RegistrationView, {
-            onRegistration: (registration)=>this.onRegistration(registration)
+            onRegistration: (registration1)=>this.onRegistration(registration1)
             ,
             __source: {
                 fileName: "src/components/main-view/main-view.jsx",

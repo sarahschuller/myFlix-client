@@ -30,29 +30,29 @@ export class MainView extends React.Component {
       });
   }
 
-  setSelectedMovie(newSelectedMovie){
+  setSelectedMovie(movie){
       this.setState({
           selectedMovie: movie
       });
   }
 
- //  Register new user
-  onRegistration(registration) {
-      this.setState({
-          registration,
-      });
-  }
+    // Register new users
+    onRegistration(registration) {
+        this.setState({
+            registration,
+        });
+    }
 
-//   Existing user log in
-  onLoggedIn(user) {
-      this.setState({
-          user
-      });
-  }
+    // Existing user logs in
+    onLoggedIn(user) {
+        this.setState({
+            user
+        });
+    }
   
 
   render() {
-    const { movies, selectedMovie, user } = this.state;
+    const { movies, selectedMovie, user, registration } = this.state;
 
     if (!registration) return (<RegistrationView onRegistration={(registration) => this.onRegistration(registration)} />);
 
