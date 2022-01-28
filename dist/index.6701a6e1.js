@@ -26428,6 +26428,7 @@ class MovieCard extends _reactDefault.default.Component {
                             children: movie.Description
                         }),
                         /*#__PURE__*/ _jsxRuntime.jsx(_buttonDefault.default, {
+                            variant: "primary",
                             onClick: ()=>onMovieClick(movie)
                             ,
                             variant: "link",
