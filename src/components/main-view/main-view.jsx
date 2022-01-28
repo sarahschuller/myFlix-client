@@ -8,7 +8,6 @@ import { LoginView } from '../login-view/login-view';
 import { RegistrationView } from '../registration-view/registration-view';
 import { MovieCard } from '../movie-card/movie-card';
 import { MovieView } from '../movie-view/movie-view';
-import { propTypes } from 'react-bootstrap/esm/Image';
 
 export class MainView extends React.Component {
 
