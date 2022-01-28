@@ -1,13 +1,16 @@
 import React from 'react';
-import Navbar from 'react-bootstrap/Navbar'
+import { Navbar, Container, Nav } from 'react-bootstrap';
 
-export class NavBar extends React.Component {
-}
+export function NavbarView({user}) {
+    const onLoggedOut = () => {
+        localStorage.clear();
+        window.open('/', '_self');
+    };
 
 
 <Navbar bg="light" expand="lg">
   <Container fluid>
-    <Navbar.Brand href="#">Navbar scroll</Navbar.Brand>
+    <Navbar.Brand href="#">FlixFile</Navbar.Brand>
     <Navbar.Toggle aria-controls="navbarScroll" />
     <Navbar.Collapse id="navbarScroll">
       <Nav
@@ -21,4 +24,4 @@ export class NavBar extends React.Component {
     </Navbar.Collapse>
   </Container>
 </Navbar>
-
+}
