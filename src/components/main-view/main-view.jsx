@@ -75,7 +75,7 @@ export class MainView extends React.Component {
                 style={{ maxHeight: '100px' }}
                 navbarScroll
               >
-                <Nav.Link href="#action1">Home</Nav.Link>
+                <Nav.Link href="/index">Home</Nav.Link>
                 <Nav.Link href="#action2">Link</Nav.Link>
               </Nav>
             </Navbar.Collapse>
@@ -95,9 +95,8 @@ export class MainView extends React.Component {
               ))
             }
           </Row>
-        
         </div>
-      )
+      );
     };
 }
 
