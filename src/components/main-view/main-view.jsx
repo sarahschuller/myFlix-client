@@ -1,10 +1,9 @@
 import React from 'react';
 import axios from 'axios';
-import PropTypes from 'prop-types';
 import { Navbar, Container, Nav, Row, Col } from 'react-bootstrap';
 
 import { LoginView } from '../login-view/login-view';
-import { RegistrationView } from '../registration-view/registration-view';
+// import { RegistrationView } from '../registration-view/registration-view';
 import { MovieCard } from '../movie-card/movie-card';
 import { MovieView } from '../movie-view/movie-view';
 
@@ -40,24 +39,29 @@ export class MainView extends React.Component {
   }
 
     // Register new users
-    onRegistration(registration) {
+   /* onRegistration(registration) {
         this.setState({
             registration,
         });
-    }
+    } */
 
     // Existing user logs in
-    onLoggedIn(user) {
+    onLoggedIn(authData) {
+        console.log(authData);
         this.setState({
-            user
+          user: authData.user.Username
         });
+
+        localStorage.setItem('token', authData.token);
+        localStorage.setItem('user', authData.user.Username);
+        this.getMovies(authData.token);
     }
   
 
   render() {
-    const { movies, selectedMovie, user, registration } = this.state;
+    const { movies, selectedMovie, user, /* registration */ } = this.state;
 
-    if (!registration) return (<RegistrationView onRegistration={(registration) => this.onRegistration(registration)} />);
+   /* if (!registration) return (<RegistrationView onRegistration={(registration) => this.onRegistration(registration)} />); */
 
     if (!user) return <LoginView onLoggedIn={user => this.onLoggedIn(user)} />;
   
@@ -98,8 +102,4 @@ export class MainView extends React.Component {
         </div>
       );
     };
-}
-
-MainView.propTypes={
-  setSelectedMovie: PropTypes.func.isRequired,
 }
