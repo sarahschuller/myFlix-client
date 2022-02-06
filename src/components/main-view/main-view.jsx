@@ -3,7 +3,7 @@ import axios from 'axios';
 import { Navbar, Container, Nav, Row, Col } from 'react-bootstrap';
 
 import { LoginView } from '../login-view/login-view';
-// import { RegistrationView } from '../registration-view/registration-view';
+import { RegistrationView } from '../registration-view/registration-view';
 import { MovieCard } from '../movie-card/movie-card';
 import { MovieView } from '../movie-view/movie-view';
 
@@ -35,13 +35,6 @@ export class MainView extends React.Component {
           selectedMovie: movie
       });
   }
-
-    // Register new users
-   /* onRegistration(registration) {
-        this.setState({
-            registration,
-        });
-    } */
 
     // Existing user logs in
     onLoggedIn(authData) {
@@ -81,9 +74,7 @@ export class MainView extends React.Component {
   
 
   render() {
-    const { movies, selectedMovie, user, /* registration */ } = this.state;
-
-   /* if (!registration) return (<RegistrationView onRegistration={(registration) => this.onRegistration(registration)} />); */
+    const { movies, selectedMovie, user, registration } = this.state;
 
     if (!user) return <LoginView onLoggedIn={user => this.onLoggedIn(user)} />;
   

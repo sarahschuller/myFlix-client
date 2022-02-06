@@ -57,12 +57,14 @@ export function RegistrationView(props) {
           window.open('/', '_self');
         })
         .catch(e => {
-          console.log('Cannot register user')
+          console.log('error registering the user')
         });
         props.onLoggedIn(Username);
     };
 
     return (
+      <Row className="mt-5">
+        <Col md={12}>
         <Form>
           <Form.Group controlId="formUsername">
             <Form.Label>Username:</Form.Label>
@@ -94,7 +96,11 @@ export function RegistrationView(props) {
 
           <Button variant="primary" type="submit" onClick={handleSubmit}>Submit
           </Button>
+          <p></p>
+          <p>Already registered <Link to={'/'}>Sign In</Link> here</p>
         </Form>
+      </Col>
+    </Row>
     );
 }
 
