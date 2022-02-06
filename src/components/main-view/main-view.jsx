@@ -1,7 +1,7 @@
 // React imports
 import React from 'react';
 import axios from 'axios';
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 
 // Bootstrap styling imports
 import { Navbar, Container, Nav, Row, Col } from 'react-bootstrap';
@@ -84,6 +84,25 @@ export class MainView extends React.Component {
   
     return (
         <div className="main-view">    
+        {/* Navbar */}
+        <Navbar bg="primary" variant="dark" expand="lg">
+          <Container fluid>
+            <Navbar.Brand href="#">FlixFile</Navbar.Brand>
+            <Navbar.Toggle aria-controls="navbarScroll" />
+            <Navbar.Collapse id="navbarScroll">
+              <Nav
+                className="me-auto my-2 my-lg-0"
+                style={{ maxHeight: '100px' }}
+                navbarScroll
+              >
+                <Nav.Link href="/index">Home</Nav.Link>
+                <Nav.Link href="#action2">Link</Nav.Link>
+                <Nav.Link href="/index" onClick={() => { this.onLoggedOut()}}>Logout</Nav.Link>
+              </Nav>
+            </Navbar.Collapse>
+          </Container>
+        </Navbar>
+
         <Router>
           <Row className="main-view justify-content-md-center">
             <Route exact path="/" render={() => {
@@ -100,6 +119,7 @@ export class MainView extends React.Component {
             }} />
           </Row>
         </Router>
+
         </div> 
       );
     };
