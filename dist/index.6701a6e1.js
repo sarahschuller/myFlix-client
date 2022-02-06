@@ -24707,7 +24707,7 @@ function LoginView(props) {
                         lineNumber: 66
                     },
                     __self: this,
-                    children: "Submit"
+                    children: "Login"
                 }),
                 /*#__PURE__*/ _jsxRuntime.jsx(_buttonDefault.default, {
                     variant: "secondary",
