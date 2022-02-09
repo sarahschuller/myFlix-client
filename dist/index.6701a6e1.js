@@ -22921,13 +22921,16 @@ class MainView extends _reactDefault.default.Component {
                                             children: "Home"
                                         }),
                                         /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Nav.Link, {
-                                            href: "#action2",
+                                            href: "/profile",
+                                            onClick: ()=>{
+                                                this.onLoggedIn();
+                                            },
                                             __source: {
                                                 fileName: "src/components/main-view/main-view.jsx",
                                                 lineNumber: 102
                                             },
                                             __self: this,
-                                            children: "Link"
+                                            children: "Profile"
                                         }),
                                         /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Nav.Link, {
                                             href: "/index",

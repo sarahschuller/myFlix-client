@@ -99,7 +99,7 @@ export class MainView extends React.Component {
                 navbarScroll
               >
                 <Nav.Link href="/index">Home</Nav.Link>
-                <Nav.Link href="#action2">Link</Nav.Link>
+                <Nav.Link href="/profile" onClick={() => { this.onLoggedIn ()}}>Profile</Nav.Link>
                 <Nav.Link href="/index" onClick={() => { this.onLoggedOut()}}>Logout</Nav.Link>
               </Nav>
             </Navbar.Collapse>
