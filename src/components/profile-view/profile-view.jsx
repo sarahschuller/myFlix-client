@@ -228,7 +228,7 @@ export class ProfileView extends React.Component {
                                         />
                                     </Form.Group>
                                     <div className="mt-3">
-                                        <Button variant="success" type="submit" onClick={this.editUser}>Update User</Button>
+                                        <Button variant="primary" type="submit" onClick={this.editUser}>Update User</Button>
                                         <Button className="ml-3" variant="secondary" onClick={() => this.onDeleteUser()}>Delete User</Button>
                                     </div>
                                 </Form>
@@ -238,7 +238,7 @@ export class ProfileView extends React.Component {
                 </Row>
                 <Row style={{ marginTop: "20px" }}>
                     <Col>
-                        <h4>{Username} Favorite Movies</h4>
+                        <h2>{Username} Favorite Movies</h2>
                     </Col>
                 </Row>
                 <Row>
