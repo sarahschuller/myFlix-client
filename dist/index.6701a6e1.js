@@ -23065,6 +23065,11 @@ class MainView extends _reactDefault.default.Component {
                             /*#__PURE__*/ _jsxRuntime.jsx(_reactRouterDom.Route, {
                                 path: "/directors/:name",
                                 render: ({ match , history  })=>{
+                                    if (!user) return(/*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Col, {
+                                        children: /*#__PURE__*/ _jsxRuntime.jsx(_loginView.LoginView, {
+                                            onLoggedIn: (user1)=>this.onLoggedIn(user1)
+                                        })
+                                    }));
                                     if (movies.length === 0) return(/*#__PURE__*/ _jsxRuntime.jsx("div", {
                                         className: "main-view"
                                     }));
@@ -23074,6 +23079,9 @@ class MainView extends _reactDefault.default.Component {
                                             director: movies.find((m)=>m.Director.Name === match.params.name
                                             ).Director,
                                             onBackClick: ()=>history.goBack()
+                                            ,
+                                            movies: movies.filter((movie)=>movie.Director.Name === match.params.name
+                                            )
                                         })
                                     }));
                                 },
@@ -23108,7 +23116,7 @@ class MainView extends _reactDefault.default.Component {
                                 },
                                 __source: {
                                     fileName: "src/components/main-view/main-view.jsx",
-                                    lineNumber: 172
+                                    lineNumber: 185
                                 },
                                 __self: this
                             })
