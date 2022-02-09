@@ -16,7 +16,7 @@ export class GenreView extends React.Component {
           <Card.Text>{Genre.Description}</Card.Text>
           <Link to={`/`}>
             <Button onClick={() => onBackClick(null)} variant="primary">Back</Button>
-        </Link>
+          </Link>
         </Card.Body>
       </Card>
     );
