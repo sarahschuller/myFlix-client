@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
+import { BrowserRouter as Router, Route } from "react-router-dom";
 
 export function LoginView(props) {
   const [ username, setUsername ] = useState('');
@@ -63,15 +65,15 @@ export function LoginView(props) {
         {/* code added here to display validation error */}
         {passwordErr && <p>{passwordErr}</p>}
       </Form.Group>
-      <Button variant="primary" type="submit" onClick={handleSubmit}>
-        Login
-        </Button>
+      <div className="mt-3">
+          <Button variant="primary" type="submit" onClick={handleSubmit}>Login</Button>
+          <Router>
+          <Link to="/register">
+              <Button variant="secondary">Register</Button>
+          </Link>
+          </Router>
+      </div>
 
-      <Button variant="secondary" type="submit" onClick={handleSubmit}>
-        Register
-      </Button>
-
-     
     </Form>
   );
 }
