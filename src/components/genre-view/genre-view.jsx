@@ -6,6 +6,7 @@ import Card from 'react-bootstrap/Card';
 import { Link } from "react-router-dom";
 
 export class GenreView extends React.Component {
+  
   render() {
     const { Genre, onBackClick } = this.props;
 

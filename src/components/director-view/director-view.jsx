@@ -6,6 +6,7 @@ import Card from 'react-bootstrap/Card';
 import { Link } from "react-router-dom";
 
 export class DirectorView extends React.Component {
+
   render() {
     const { director, onBackClick } = this.props;
 
@@ -13,7 +14,9 @@ export class DirectorView extends React.Component {
       <Card>
         <Card.Body>
           <Card.Title>{director.Name}</Card.Title>
-          <Card.Text>{director.Description}</Card.Text>
+          <Card.Text>{director.Bio}</Card.Text>
+          <Card.Text>Birth: {director.Birth}</Card.Text>
+          <Card.Text>Death: {director.Death}</Card.Text>
           <Link to={`/`}>
             <Button onClick={() => onBackClick(null)} variant="primary">Back</Button>
         </Link>
