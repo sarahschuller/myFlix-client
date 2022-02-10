@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
-import { BrowserRouter as Router } from "react-router-dom";
 
 export function LoginView(props) {
   const [ username, setUsername ] = useState('');
@@ -67,11 +66,9 @@ export function LoginView(props) {
       </Form.Group>
       <div className="mt-3">
           <Button variant="primary" type="submit" onClick={handleSubmit}>Login</Button>
-          <Router>
           <Link to="/register">
               <Button variant="secondary">Register</Button>
           </Link>
-          </Router>
       </div>
 
     </Form>
