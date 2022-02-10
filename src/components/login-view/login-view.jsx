@@ -11,7 +11,7 @@ export function LoginView(props) {
   const [ password, setPassword ] = useState('');
   // Declare hook for each input
   const [ usernameErr, setUsernameErr ] = useState('');
-  const [ passwordErr, setPasswordErr ] = useState('');{
+  const [ passwordErr, setPasswordErr ] = useState('');
 
   // Validate your inputs
   const validate = () => {
@@ -85,4 +85,3 @@ LoginView.propTypes = {
   }),
   onLoggedIn: PropTypes.func.isRequired,
 };
-}
