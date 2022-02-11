@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Button from 'react-bootstrap/Button';
-import Card from 'react-bootstrap/Card';
+import { Card, Button } from 'react-bootstrap';
 
 import { Link } from "react-router-dom";
 
@@ -16,7 +15,7 @@ export class DirectorView extends React.Component {
           <Card.Title>{director.Name}</Card.Title>
           <Card.Text>{director.Bio}</Card.Text>
           <Card.Text>Birth: {director.Birth}</Card.Text>
-          <Card.Text>Death: {director.Death}</Card.Text>
+          {/* <Card.Text>Death: {director.Death}</Card.Text> */}
           <Link to={`/`}>
             <Button onClick={() => onBackClick(null)} variant="primary">Back</Button>
         </Link>

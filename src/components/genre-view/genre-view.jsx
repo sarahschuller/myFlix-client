@@ -1,33 +1,32 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Button from 'react-bootstrap/Button';
-import Card from 'react-bootstrap/Card';
+import { Card, Button } from 'react-bootstrap';
 
 import { Link } from "react-router-dom";
 
 export class GenreView extends React.Component {
-  
-  render() {
-    const { Genre, onBackClick } = this.props;
 
-    return (
-      <Card>
-        <Card.Body>
-          <Card.Title>{Genre.Name}</Card.Title>
-          <Card.Text>{Genre.Description}</Card.Text>
-          <Link to={`/`}>
-            <Button onClick={() => onBackClick(null)} variant="primary">Back</Button>
-          </Link>
-        </Card.Body>
-      </Card>
-    );
-  }
+    render() {
+        const { genre, onBackClick } = this.props;
+
+        return (
+          <Card>
+              <Card.Body>
+                  <Card.Title>Genre</Card.Title>
+                  <Card.Text>Name: {genre.Name} </Card.Text>
+                  <Card.Text> Description: {genre.Description} </Card.Text>
+                  <Link to={`/`}>
+                    <Button onClick={() => onBackClick(null)} variant="primary">Back</Button>
+                </Link>
+              </Card.Body>
+          </Card>
+        );
+    }
 }
 
-GenreView.propTypes = {
+GenreView.proptypes = {
     genre: PropTypes.shape({
-        Name: PropTypes.string,
-        Description: PropTypes.string
-    }),
-    onBackClick: PropTypes.func.isRequired
+        Name: PropTypes.string.isRequired,
+        Description: PropTypes.string.isRequired,
+    }).isRequired,
 };
