@@ -82,7 +82,7 @@ export class MainView extends React.Component {
         {/* Navbar */}
         <Navbar bg="primary" variant="dark" expand="lg">
           <Container fluid>
-            <Navbar.Brand href="#">FlixFile</Navbar.Brand>
+            <Navbar.Brand href="/">FlixFile</Navbar.Brand>
             <Navbar.Toggle aria-controls="navbarScroll" />
             <Navbar.Collapse id="navbarScroll">
               <Nav
@@ -90,9 +90,9 @@ export class MainView extends React.Component {
                 style={{ maxHeight: '100px' }}
                 navbarScroll
               >
-                <Nav.Link href="/index">Home</Nav.Link>
+                <Nav.Link href="/">Home</Nav.Link>
                 <Nav.Link href="/profile" onClick={() => { this.onLoggedIn ()}}>Profile</Nav.Link>
-                <Nav.Link href="/index" onClick={() => { this.onLoggedOut()}}>Logout</Nav.Link>
+                <Nav.Link href="/" onClick={() => { this.onLoggedOut()}}>Logout</Nav.Link>
               </Nav>
             </Navbar.Collapse>
           </Container>
