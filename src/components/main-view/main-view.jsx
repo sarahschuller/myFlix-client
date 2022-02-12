@@ -176,7 +176,7 @@ export class MainView extends React.Component {
                       </Col>
                   );
               }} />
-            <Route path="/genre/:name" render={({ match, history }) => {
+            <Route path="/genres/:name" render={({ match, history }) => {
               if (!user) {
                 return (
                   <Col>
