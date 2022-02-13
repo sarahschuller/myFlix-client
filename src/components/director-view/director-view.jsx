@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { Card, Button } from 'react-bootstrap';
 
 import { Link } from "react-router-dom";
@@ -24,11 +23,3 @@ export class DirectorView extends React.Component {
     );
   }
 }
-
-DirectorView.propTypes = {
-    director: PropTypes.shape({
-        Name: PropTypes.string,
-        Description: PropTypes.string
-    }),
-    onBackClick: PropTypes.func.isRequired
-};
