@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { Card, Button } from 'react-bootstrap';
 
 import { Link } from "react-router-dom";
@@ -23,10 +22,3 @@ export class GenreView extends React.Component {
         );
     }
 }
-
-GenreView.proptypes = {
-    genre: PropTypes.shape({
-        Name: PropTypes.string.isRequired,
-        Description: PropTypes.string.isRequired,
-    }).isRequired,
-};
