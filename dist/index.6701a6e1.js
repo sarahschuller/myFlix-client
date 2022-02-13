@@ -42269,6 +42269,7 @@ class GenreView extends _reactDefault.default.Component {
     render() {
         const { genre , onBackClick  } = this.props;
         return(/*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Card, {
+            className: "bg-light text-black text-center",
             __source: {
                 fileName: "src/components/genre-view/genre-view.jsx",
                 lineNumber: 12
@@ -42287,7 +42288,7 @@ class GenreView extends _reactDefault.default.Component {
                             lineNumber: 14
                         },
                         __self: this,
-                        children: "Genre"
+                        children: genre.Name
                     }),
                     /*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.Card.Text, {
                         __source: {
@@ -42296,19 +42297,7 @@ class GenreView extends _reactDefault.default.Component {
                         },
                         __self: this,
                         children: [
-                            "Name: ",
-                            genre.Name,
-                            " "
-                        ]
-                    }),
-                    /*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.Card.Text, {
-                        __source: {
-                            fileName: "src/components/genre-view/genre-view.jsx",
-                            lineNumber: 16
-                        },
-                        __self: this,
-                        children: [
-                            " Description: ",
+                            " ",
                             genre.Description,
                             " "
                         ]
@@ -42317,7 +42306,7 @@ class GenreView extends _reactDefault.default.Component {
                         to: `/`,
                         __source: {
                             fileName: "src/components/genre-view/genre-view.jsx",
-                            lineNumber: 17
+                            lineNumber: 16
                         },
                         __self: this,
                         children: /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Button, {
@@ -42326,7 +42315,7 @@ class GenreView extends _reactDefault.default.Component {
                             variant: "primary",
                             __source: {
                                 fileName: "src/components/genre-view/genre-view.jsx",
-                                lineNumber: 18
+                                lineNumber: 17
                             },
                             __self: this,
                             children: "Back"
@@ -42363,6 +42352,7 @@ class DirectorView extends _reactDefault.default.Component {
     render() {
         const { director , onBackClick  } = this.props;
         return(/*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Card, {
+            className: "bg-light text-black text-center",
             __source: {
                 fileName: "src/components/director-view/director-view.jsx",
                 lineNumber: 12

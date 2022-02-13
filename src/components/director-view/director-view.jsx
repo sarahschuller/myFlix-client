@@ -9,7 +9,7 @@ export class DirectorView extends React.Component {
     const { director, onBackClick } = this.props;
 
     return (
-      <Card>
+      <Card className="bg-light text-black text-center">
         <Card.Body>
           <Card.Title>{director.Name}</Card.Title>
           <Card.Text>{director.Bio}</Card.Text>

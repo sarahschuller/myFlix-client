@@ -9,11 +9,10 @@ export class GenreView extends React.Component {
         const { genre, onBackClick } = this.props;
 
         return (
-          <Card>
+          <Card className="bg-light text-black text-center">
               <Card.Body>
-                  <Card.Title>Genre</Card.Title>
-                  <Card.Text>Name: {genre.Name} </Card.Text>
-                  <Card.Text> Description: {genre.Description} </Card.Text>
+                  <Card.Title>{genre.Name}</Card.Title>
+                  <Card.Text> {genre.Description} </Card.Text>
                   <Link to={`/`}>
                     <Button onClick={() => onBackClick(null)} variant="primary">Back</Button>
                 </Link>
