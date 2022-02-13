@@ -241,36 +241,35 @@ export class ProfileView extends React.Component {
                 </Row>
                 <Row>
                     <Col>
-                        <Card.Body>
-                            {FavoriteMovies.length === 0 && (
-                                <div className="text-center">No Favorite Movies</div>
-                            )}
-                            <Row className="favorite-container">
-                                {FavoriteMovies.length > 0 &&
-                                    movies.map((movie) => {
-                                    if (
-                                        movie._id ===
-                                        FavoriteMovies.find((fav) => fav === movie._id)
-                                    ) {
-                                        return (
-                                            <Card className="favorite-movie card-content" key={movie._id} >
-                                                <Card.Img
-                                                    className="fav-poster"
-                                                    variant="top"
-                                                    src={movie.ImagePath}
-                                                />
-                                                <Card.Body style={{ backgroundColor: "black" }}>
-                                                    <Card.Title className="movie_title">
-                                                        {movie.Title}
-                                                    </Card.Title>
-                                                    <Button size="sm" variant="danger" value={movie._id} onClick={(e) => this.onRemoveFavorite(e, movie)}>Remove</Button>
-                                                </Card.Body>
-                                            </Card>
-                                        );
-                                    }
-                                })}
-                            </Row>
-                        </Card.Body>
+                        {FavoriteMovies.length === 0 && (
+                            <div className="text-center">No Favorite Movies</div>
+                        )}
+                        <Row className="favorite-container">
+                            {FavoriteMovies.length > 0 &&
+                                movies.map((movie) => {
+                                if (
+                                    movie._id ===
+                                    FavoriteMovies.find((fav) => fav === movie._id)
+                                ) {
+                                    return (
+                                        <Card className="favorite-movie card-content" key={movie._id} >
+                                            <Card.Img
+                                                className="fav-poster"
+                                                variant="top"
+                                                src={movie.ImagePath} 
+                                                crossOrigin = "anonymous"
+                                            />
+                                            <Card.Body>
+                                                <Card.Title className="movie_title">
+                                                    {movie.Title}
+                                                </Card.Title>
+                                                <Button size="sm" variant="danger" value={movie._id} onClick={(e) => this.onRemoveFavorite(e, movie)}>Remove</Button>
+                                            </Card.Body>
+                                        </Card>
+                                    );
+                                }
+                            })}
+                        </Row>
                     </Col>
                 </Row>
                 <div className="backButton">
