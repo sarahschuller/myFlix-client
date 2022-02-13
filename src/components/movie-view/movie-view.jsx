@@ -3,18 +3,11 @@ import axios from 'axios';
 import PropTypes from 'prop-types';
 import { Button, Card, Row } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
 
 import './movie-view.scss'
 
 export class MovieView extends React.Component {
-
-  keypressCallback(event) {
-    console.log(event.key);
-  }
-
-  componentDidMount() {
-    document.addEventListener('keypress', this.keypressCallback);
-  }
 
   addFavoriteMovie() {
     const token = localStorage.getItem('token');
@@ -38,8 +31,8 @@ export class MovieView extends React.Component {
 
     return (
     <Row className="justify-content-md-center">
-       <Card className="text-center bg-dark text-white" border="secondary">
-        <Card.Img variant="top" src={movie.ImagePath} crossOrigin="anonymous"/>
+       <Card style={{ width: '60rem' }} className="text-center bg-light text-black" border="light">
+        {/* <Card.Img variant="top" src={movie.ImagePath} crossOrigin="anonymous"/> */}
         <Card.Body>
             <Card.Title>{movie.Title}</Card.Title>
             <Card.Text>{movie.Description}</Card.Text>

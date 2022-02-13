@@ -1,5 +1,7 @@
-* {
-  background-color: black;
+.movie-poster {
+  width: 18rem;
+  display: flex;
+  justify-content: left;
 }
 
 
