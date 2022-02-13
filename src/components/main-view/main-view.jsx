@@ -43,6 +43,26 @@ class MainView extends React.Component {
     });
   }
 
+  getUser() {
+    const user = localStorage.getItem("user");
+    const token = localStorage.getItem("token");
+    axios.get(`https://flixfile.herokuapp.com/users/${user}`, {
+        headers: { Authorization: `Bearer ${token}` },
+    })
+        .then((response) => {
+            this.props.setUser({
+                username: response.data.Username,
+                password: response.data.Password,
+                email: response.data.Email,
+                birthday: response.data.Birthday,
+                favorites: response.data.FavoriteMovies
+            });
+        })
+        .catch(function (error) {
+            console.log(error);
+        });
+}
+
   componentDidMount(){
     let accessToken = localStorage.getItem('token');
     if (accessToken !== null) {
@@ -101,17 +121,30 @@ class MainView extends React.Component {
 
         <Router>
           <Row className="main-view justify-content-md-center">
+            
+             {/* Index route */}
             <Route exact path="/" render={() => {
               if (!user) {
                 return <Redirect to="/login" />;
               }
 
-              return movies.map(m => (
-                <Col md={3} key={m._id}>
-                  <MovieCard movie={m} />
-                </Col>
-              ))
+              if (movies.lenth === 0) return <div
+              className="main-view" />;
+              console.log(this.state);
+              return <MoviesList movies={movies} />;
             }} />
+            
+            {/* Movie Route */}
+            <Route path="/movies/:movieId" render={({ match, history }) => {
+                if (movies.length === 0) return <div className="main-view" />;
+                console.log(movies)
+                return <Col lg={9}>
+                    <MovieView movie={movies.find(m => m._id === match.params.movieId)}
+                        onBackClick={() => history.goBack()} />
+                </Col>
+            }} />
+
+            {/* Login Route */}
             <Route path="/login" render={() => {
               if (user) {
                 return <Redirect to="/" />;
@@ -123,19 +156,6 @@ class MainView extends React.Component {
               return <Col>
                   <RegistrationView />
                 </Col>
-            }} />
-            <Route path="/movies/:movieId" render={({ match, history }) => {
-              if (!user) {
-                return (
-                  <Col>
-                    <LoginView onLoggedIn={user => this.onLoggedIn(user)} />
-                  </Col>
-                );
-              }
-              if (movies.length === 0) {
-                return <div className="main-view" />;
-              }
-              return <MoviesList movies={movies}/>;
             }} />
               
             <Route path="/profile" render={({ history }) => {
