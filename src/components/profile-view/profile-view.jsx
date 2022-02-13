@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import './profile-view.scss';
 import { Container, Card, CardGroup, Button, Row, Col, Form } from 'react-bootstrap';
 
@@ -281,21 +281,18 @@ export class ProfileView extends React.Component {
     }
 }
 
-ProfileView.propTypes = {
-    movies: PropTypes.arrayOf(PropTypes.shape({
-        Title: PropTypes.string.isRequired,
-        Description: PropTypes.string.isRequired,
-        ImagePath: PropTypes.string.isRequired,
-        Genre: PropTypes.shape({
-            Name: PropTypes.string.isRequired,
-            Description: PropTypes.string.isRequired,
-        }).isRequired,
-        Director: PropTypes.shape({
-            Bio: PropTypes.string.isRequired,
-            Birth: PropTypes.string.isRequired,
-            Death: PropTypes.string.isRequired,
-            Name: PropTypes.string.isRequired,
-        }).isRequired,
-    })).isRequired,
-    onBackClick: PropTypes.func.isRequired
-};
+const mapStateToProps = (props, ownProps) =>{
+    const { movies } = props;
+    const { user } = ownProps;
+
+    const favoriteMovies = user && user.FavoriteMovies.map( favMovie => (
+        movies.find(movie => (movie._id === favMovie))
+    ));
+
+    return {
+        favoriteMovies,
+        user
+    }
+}
+
+export default connect(mapStateToProps)(ProfileView);
