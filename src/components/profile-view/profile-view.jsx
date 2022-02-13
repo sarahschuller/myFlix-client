@@ -2,7 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import PropTypes from 'prop-types';
 import './profile-view.scss';
-import { Container, Card, Button, Row, Col, Form } from 'react-bootstrap';
+import { Container, Card, CardGroup, Button, Row, Col, Form } from 'react-bootstrap';
 
 export class ProfileView extends React.Component {
     constructor() {
@@ -244,7 +244,6 @@ export class ProfileView extends React.Component {
                         {FavoriteMovies.length === 0 && (
                             <div className="text-center">No Favorite Movies</div>
                         )}
-                        <Row className="favorite-container">
                             {FavoriteMovies.length > 0 &&
                                 movies.map((movie) => {
                                 if (
@@ -252,6 +251,7 @@ export class ProfileView extends React.Component {
                                     FavoriteMovies.find((fav) => fav === movie._id)
                                 ) {
                                     return (
+                                        <CardGroup>
                                         <Card className="favorite-movie card-content" key={movie._id} >
                                             <Card.Img
                                                 className="fav-poster"
@@ -266,10 +266,10 @@ export class ProfileView extends React.Component {
                                                 <Button size="sm" variant="danger" value={movie._id} onClick={(e) => this.onRemoveFavorite(e, movie)}>Remove</Button>
                                             </Card.Body>
                                         </Card>
+                                        </CardGroup>
                                     );
                                 }
                             })}
-                        </Row>
                     </Col>
                 </Row>
                 <div className="backButton">

@@ -58,10 +58,23 @@ export class MovieView extends React.Component {
   }
 }
 
-
 MovieView.propTypes = {
   movie: PropTypes.shape({
-    Title: PropTypes.string.isRequired,
-    Description: PropTypes.string.isRequired,
-    }),
-  };
+      Title: PropTypes.string.isRequired,
+      Description: PropTypes.string.isRequired,
+      Genre: PropTypes.shape({
+          Name: PropTypes.string.isRequired,
+          Description: PropTypes.string.isRequired,
+      }),
+  }).isRequired,    
+};
+
+const mapStateToProps = (props, ownProps) =>{
+  const movie = props.movies.find(m => m._id === ownProps.match.params.movieId);
+
+  return {
+      movie
+  }
+}
+
+export default connect(mapStateToProps)(MovieView);

@@ -29146,9 +29146,21 @@ class MovieView extends _reactDefault.default.Component {
 MovieView.propTypes = {
     movie: _propTypesDefault.default.shape({
         Title: _propTypesDefault.default.string.isRequired,
-        Description: _propTypesDefault.default.string.isRequired
-    })
+        Description: _propTypesDefault.default.string.isRequired,
+        Genre: _propTypesDefault.default.shape({
+            Name: _propTypesDefault.default.string.isRequired,
+            Description: _propTypesDefault.default.string.isRequired
+        })
+    }).isRequired
 };
+const mapStateToProps = (props, ownProps)=>{
+    const movie = props.movies.find((m)=>m._id === ownProps.match.params.movieId
+    );
+    return {
+        movie
+    };
+};
+exports.default = _reactRedux.connect(mapStateToProps)(MovieView);
 
   $parcel$ReactRefreshHelpers$3741.postlude(module);
 } finally {
@@ -42133,16 +42145,15 @@ class ProfileView extends _reactDefault.default.Component {
                                 __self: this,
                                 children: "No Favorite Movies"
                             }),
-                            /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Row, {
-                                className: "favorite-container",
-                                __source: {
-                                    fileName: "src/components/profile-view/profile-view.jsx",
-                                    lineNumber: 247
-                                },
-                                __self: this,
-                                children: FavoriteMovies.length > 0 && movies.map((movie)=>{
-                                    if (movie._id === FavoriteMovies.find((fav)=>fav === movie._id
-                                    )) return(/*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.Card, {
+                            FavoriteMovies.length > 0 && movies.map((movie)=>{
+                                if (movie._id === FavoriteMovies.find((fav)=>fav === movie._id
+                                )) return(/*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.CardGroup, {
+                                    __source: {
+                                        fileName: "src/components/profile-view/profile-view.jsx",
+                                        lineNumber: 254
+                                    },
+                                    __self: this,
+                                    children: /*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.Card, {
                                         className: "favorite-movie card-content",
                                         __source: {
                                             fileName: "src/components/profile-view/profile-view.jsx",
@@ -42193,8 +42204,8 @@ class ProfileView extends _reactDefault.default.Component {
                                                 ]
                                             })
                                         ]
-                                    }, movie._id));
-                                })
+                                    }, movie._id)
+                                }));
                             })
                         ]
                     })
