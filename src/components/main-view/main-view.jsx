@@ -3,6 +3,7 @@ import React from 'react';
 import axios from 'axios';
 import { connect } from 'react-redux';
 import { BrowserRouter as Router, Route, Redirect } from "react-router-dom";
+import './main-view.scss';
 
 // Bootstrap styling imports
 import { Navbar, Container, Nav, Row, Col } from 'react-bootstrap';
