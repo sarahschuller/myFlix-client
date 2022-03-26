@@ -1,8 +1,8 @@
 import React from 'react';
 import axios from 'axios';
-import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import './profile-view.scss';
-import { Container, Card, Button, Row, Col, Form } from 'react-bootstrap';
+import { Container, Card, CardGroup, Button, Row, Col, Form } from 'react-bootstrap';
 
 export class ProfileView extends React.Component {
     constructor() {
@@ -241,36 +241,35 @@ export class ProfileView extends React.Component {
                 </Row>
                 <Row>
                     <Col>
-                        <Card.Body>
-                            {FavoriteMovies.length === 0 && (
-                                <div className="text-center">No Favorite Movies</div>
-                            )}
-                            <Row className="favorite-container">
-                                {FavoriteMovies.length > 0 &&
-                                    movies.map((movie) => {
-                                    if (
-                                        movie._id ===
-                                        FavoriteMovies.find((fav) => fav === movie._id)
-                                    ) {
-                                        return (
-                                            <Card className="favorite-movie card-content" key={movie._id} >
-                                                <Card.Img
-                                                    className="fav-poster"
-                                                    variant="top"
-                                                    src={movie.ImagePath}
-                                                />
-                                                <Card.Body style={{ backgroundColor: "black" }}>
-                                                    <Card.Title className="movie_title">
-                                                        {movie.Title}
-                                                    </Card.Title>
-                                                    <Button size="sm" variant="danger" value={movie._id} onClick={(e) => this.onRemoveFavorite(e, movie)}>Remove</Button>
-                                                </Card.Body>
-                                            </Card>
-                                        );
-                                    }
-                                })}
-                            </Row>
-                        </Card.Body>
+                        {FavoriteMovies.length === 0 && (
+                            <div className="text-center">No Favorite Movies</div>
+                        )}
+                            {FavoriteMovies.length > 0 &&
+                                movies.map((movie) => {
+                                if (
+                                    movie._id ===
+                                    FavoriteMovies.find((fav) => fav === movie._id)
+                                ) {
+                                    return (
+                                        <CardGroup>
+                                        <Card className="favorite-movie card-content" key={movie._id} >
+                                            <Card.Img
+                                                className="fav-poster"
+                                                variant="top"
+                                                src={movie.ImagePath} 
+                                                crossOrigin = "anonymous"
+                                            />
+                                            <Card.Body>
+                                                <Card.Title className="movie_title">
+                                                    {movie.Title}
+                                                </Card.Title>
+                                                <Button size="sm" variant="danger" value={movie._id} onClick={(e) => this.onRemoveFavorite(e, movie)}>Remove</Button>
+                                            </Card.Body>
+                                        </Card>
+                                        </CardGroup>
+                                    );
+                                }
+                            })}
                     </Col>
                 </Row>
                 <div className="backButton">
@@ -282,21 +281,18 @@ export class ProfileView extends React.Component {
     }
 }
 
-ProfileView.propTypes = {
-    movies: PropTypes.arrayOf(PropTypes.shape({
-        Title: PropTypes.string.isRequired,
-        Description: PropTypes.string.isRequired,
-        ImagePath: PropTypes.string.isRequired,
-        Genre: PropTypes.shape({
-            Name: PropTypes.string.isRequired,
-            Description: PropTypes.string.isRequired,
-        }).isRequired,
-        Director: PropTypes.shape({
-            Bio: PropTypes.string.isRequired,
-            Birth: PropTypes.string.isRequired,
-            Death: PropTypes.string.isRequired,
-            Name: PropTypes.string.isRequired,
-        }).isRequired,
-    })).isRequired,
-    onBackClick: PropTypes.func.isRequired
-};
+const mapStateToProps = (props, ownProps) =>{
+    const { movies } = props;
+    const { user } = ownProps;
+
+    const favoriteMovies = user && user.FavoriteMovies.map( favMovie => (
+        movies.find(movie => (movie._id === favMovie))
+    ));
+
+    return {
+        favoriteMovies,
+        user
+    }
+}
+
+export default connect(mapStateToProps)(ProfileView);

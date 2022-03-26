@@ -3,13 +3,14 @@ import PropTypes from "prop-types";
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import { Link } from 'react-router-dom';
+import './movie-card.scss';
 
 export class MovieCard extends React.Component {
     render() {
         const { movie } = this.props;
         
         return (
-            <Card>
+            <Card className="bg-light text-black movie-card">
                 <Card.Img variant="top" src={movie.ImagePath} crossorigin="anonymous" />
                 <Card.Body>
                     <Card.Title>{movie.Title}</Card.Title>
