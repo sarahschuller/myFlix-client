@@ -1,9 +1,18 @@
-* {
-  box-sizing: border-box;
-  font-family: "Montserrat", sans-serif;
-  background-color: #353535;
-  color: #ffffff;
+.nav-bar {
+  background-color: blue;
 }
+.movie-card {
+  margin-top: 1em;
+  margin-bottom: 1em;
+  height: 90%;
+}
+.movie-poster {
+  width: 18rem;
+  display: flex;
+  justify-content: left;
+}
+
+
 .my-flix {
   color: steelblue;
 }
