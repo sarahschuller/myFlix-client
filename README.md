@@ -36,3 +36,12 @@
    Node.js
   </li>
  </ul>
+ <br><br>
+ 
+ <div>
+ <img src="https://github.com/sarahschuller/myFlix-client/blob/main/public/2022-05-04.png" width="500">
+ <img src="https://github.com/sarahschuller/myFlix-client/blob/main/public/2022-05-04%20(1).png" width="500">
+ <img src="https://github.com/sarahschuller/myFlix-client/blob/main/public/2022-05-04%20(2).png" width="500">
+ <img src="https://github.com/sarahschuller/myFlix-client/blob/main/public/2022-05-04%20(3).png" width="500">
+ <img src="https://github.com/sarahschuller/myFlix-client/blob/main/public/2022-05-04%20(4).png" width="500">
+ </div>
